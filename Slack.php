@@ -365,7 +365,7 @@ class SlackPlugin extends MantisPlugin {
     	$user = user_get_row($user_id);
     	$username = $user['username'];
         $usernames = plugin_config_get('usernames');
-        $username = array_key_exists($username, $usernames) ? $usernames[$username] : $username;
-		return '@' . $username;
+        $username = array_key_exists($username, $usernames) ? $usernames[$username] : $user['realname'];
+		return $username;
     }
 }
