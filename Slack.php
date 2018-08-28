@@ -71,13 +71,13 @@ class SlackPlugin extends MantisPlugin {
     function hooks() {
         return array(
             'EVENT_REPORT_BUG' => 'bug_report',
-            'EVENT_UPDATE_BUG' => 'bug_update',
+         /*   'EVENT_UPDATE_BUG' => 'bug_update',
             'EVENT_BUG_DELETED' => 'bug_deleted',
             'EVENT_BUG_ACTION' => 'bug_action',
             'EVENT_BUGNOTE_ADD' => 'bugnote_add_edit',
             'EVENT_BUGNOTE_EDIT' => 'bugnote_add_edit',
             'EVENT_BUGNOTE_DELETED' => 'bugnote_deleted',
-            'EVENT_BUGNOTE_ADD_FORM' => 'bugnote_add_form',
+            'EVENT_BUGNOTE_ADD_FORM' => 'bugnote_add_form',*/
         );
     }
 
@@ -262,7 +262,8 @@ class SlackPlugin extends MantisPlugin {
 
     function get_channel($project) {
         $channels = plugin_config_get('channels');
-        return array_key_exists($project, $channels) ? $channels[$project] : plugin_config_get('default_channel');
+        //return array_key_exists($project, $channels) ? $channels[$project] : plugin_config_get('default_channel');
+		return array_key_exists($project, $channels) ? $channels[$project] : null;
     }
 
     function get_webhook($project) {
